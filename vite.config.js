@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/todo-list/' // <--- важно для GitHub Pages
+  base: '/todo-list/' // 
 })
