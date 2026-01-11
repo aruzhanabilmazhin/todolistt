@@ -1,141 +1,141 @@
-* {
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background: #333;
-    color: hsl(200, 100%, 90%);
-    max-width: 400px;
-    padding: 1rem;
-    margin: 0 auto;
-  }
-  
-  .new-item-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .form-row {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-  
-  .btn {
-    background: hsl(200, 100%, 50%, 0.1);
-    border: 1px solid hsl(200, 100%, 50%);
-    color: hsl(200, 100%, 50%);
-    padding: 0.25em 0.5em;
-    border-radius: 0.25em;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .btn:hover,
-  .btn:focus-visible {
-    background: hsl(200, 100%, 50%, 0.2);
-  }
-  
-  .btn.btn-danger {
-    background: hsl(0, 100%, 40%, 0.1);
-    border: 1px solid hsl(0, 100%, 40%);
-    color: hsl(0, 100%, 40%);
-  }
-  
-  .btn.btn-danger:hover,
-  .btn.btn-danger:focus-visible {
-    background: hsl(0, 100%, 40%, 0.2);
-  }
-  
-  .new-item-form input {
-    outline: none;
-    border: 1px solid hsl(200, 100%, 40%);
-    background: hsl(200, 100%, 30%);
-    border-radius: 0.25em;
-    padding: 0.25em 0.5em;
-    color: hsl(200, 100%, 90%);
-  }
-  
-  .new-item-form input:focus {
-    border: 1px solid hsl(200, 100%, 70%);
-  }
-  
-  .header {
-    font-size: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .list {
-    margin: 0;
-    padding: 0;
-    margin-left: 1rem;
-    list-style: none;
-  }
-  
-  .list li:has(input:checked) label {
-    color: hsl(200, 20%, 40%);
-  }
-  
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  
-  .list li {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
-  
-  .list li label {
-    display: flex;
-    gap: 0.25rem;
-    cursor: pointer;
-    align-items: center;
-  }
-  
-  .list li:has(input:focus-visible) label {
-    outline: 1px solid hsl(200, 100%, 50%);
-  }
-  
-  .list li input {
-    outline: none;
-    width: 0;
-    height: 0;
-    appearance: none;
-    pointer-events: none;
-    position: absolute;
-  }
-  
-  .list li label::before {
-    content: "";
-    display: block;
-    width: 0.9rem;
-    height: 0.9rem;
-    background: hsl(200, 100%, 90%);
-    border-radius: 0.25em;
+/* --- Базовая настройка --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  /* --- Основной контейнер --- */
+  .app {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    width: 400px;
+    max-width: 100%;
+  }
+  
+  /* --- Заголовок --- */
+  h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* --- Контейнер ввода --- */
+  .input-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #4caf50;
+  }
+  
+  /* --- Кнопки --- */
+  button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button.add-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  button.add-btn:hover {
+    background-color: #45a049;
+  }
+  
+  button.delete-btn {
+    background-color: #f44336;
+    color: white;
+    font-size: 13px;
+  }
+  
+  button.delete-btn:hover {
+    background-color: #da190b;
+  }
+  
+  /* --- Список задач --- */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .task-row {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
   }
   
-  .list li label:hover::before {
-    background: hsl(200, 100%, 80%);
+  .task-row:hover {
+    background-color: #f9f9f9;
   }
   
-  .list li:has(input:checked) label::before {
-    content: "✔";
-    background: hsl(200, 100%, 40%);
-    color: hsl(200, 100%, 90%);
-    font-size: 0.75rem;
-    font-weight: bold;
+  /* --- Чекбоксы --- */
+  .task-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #4caf50; /* цвет галочки */
+    margin-right: 12px;
+    cursor: pointer;
   }
   
-  .list li:has(input:checked) label:hover::before {
-    background: hsl(200, 100%, 30%);
+  /* --- Текст задачи --- */
+  .task-row span {
+    flex: 1;
+    font-size: 16px;
+    word-break: break-word;
+  }
+  
+  .task-row span.completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  /* --- Мобильная адаптация --- */
+  @media (max-width: 450px) {
+    .app {
+      width: 100%;
+      padding: 20px;
+    }
+  
+    input[type="text"] {
+      font-size: 14px;
+    }
+  
+    .task-row span {
+      font-size: 14px;
+    }
+  
+    button {
+      font-size: 13px;
+    }
   }
   
